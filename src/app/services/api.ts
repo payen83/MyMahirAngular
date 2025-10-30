@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,24 @@ export class Api {
     let fullURL: string = this.baseURL + path;
     return new Promise((resolve, reject) => {
       this.httpClient.get(fullURL).subscribe({
+        next: (response: any) => {resolve(response)},
+        error: (error: any) => {reject(error)}
+      })
+    });
+  }
+
+  httpPost(path: string, payload: any){
+    let fullURL: string = this.baseURL + path;
+    let token: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzYxODEzODgyLCJleHAiOjE3NjE5MDAyODJ9.HaWZvhBQ5H8d--tSVhbBcqdlDuZew8Nv1jlAHd9tKQ0';
+
+    let headers = { headers: new HttpHeaders (
+        {Authorization: `Bearer ${token}`}
+      ).set('Content-Type', 'application/json')
+    } 
+
+    return new Promise((resolve, reject)=>{
+      this.httpClient.post(fullURL, payload, headers)
+      .subscribe({
         next: (response: any) => {resolve(response)},
         error: (error: any) => {reject(error)}
       })
