@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 
 export const SharedModules = [
     MatToolbarModule,
@@ -22,5 +23,6 @@ export const SharedModules = [
     ReactiveFormsModule,
     MatChipsModule,
     MatSlideToggleModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
 ];
