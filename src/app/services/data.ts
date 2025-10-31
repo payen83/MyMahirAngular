@@ -25,4 +25,8 @@ export class Data {
   clearStorage(){
     return localStorage.clear();
   }
+
+  deleteStorage(key: string){
+    return localStorage.removeItem(key);
+  }
 }

@@ -1,3 +1,4 @@
+<app-toolbar></app-toolbar>
 <div class="card-container">
         <mat-card appearance="outlined" style="min-width: 300px; margin: 1em;">
             <mat-card-header>
@@ -8,25 +9,47 @@
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Student Name</mat-label>
                         <input matInput formControlName="name" placeholder="Enter name">
+                        @if(studentForm.get('name')?.hasError('required')){
+                            <mat-error>
+                                Student name is required
+                            </mat-error>
+                        }
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Student Number</mat-label>
                         <input matInput formControlName="student_no" placeholder="Enter number">
+                        @if(studentForm.get('student_no')?.hasError('required')){
+                            <mat-error>
+                                Student number is required
+                            </mat-error>
+                        }
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Student Email</mat-label>
                         <input matInput formControlName="email" placeholder="Enter email">
+                        @if(studentForm.get('email')?.hasError('required')||studentForm.get('email')?.hasError('pattern')){
+                            <mat-error>
+                                Please enter a valid email
+                            </mat-error>
+                        }
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Student Phone</mat-label>
                         <input matInput formControlName="phone" placeholder="Enter Phone Number">
+                        @if(studentForm.get('phone')?.hasError('pattern')){
+                            <mat-error>
+                                Please enter a valid phone number
+                            </mat-error>
+                        }
                     </mat-form-field>
                     <mat-card-actions align="end">
                         <button mat-raised-button type="button" routerLink="/students">Cancel</button>
-                        <button mat-raised-button color="primary" type="submit" >Submit</button>
+                        <button mat-raised-button 
+                            color="primary" type="submit"
+                            [disabled]="!studentForm.valid"
+                        >Submit</button>
                     </mat-card-actions>
                 </form>
             </mat-card-content>
         </mat-card>
-    <button mat-button routerLink="/students">Back</button>
 </div>

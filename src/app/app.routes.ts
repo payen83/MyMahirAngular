@@ -6,9 +6,10 @@ import { TodoPage } from './pages/todo-page/todo-page';
 import { StudentPage } from './pages/student-page/student-page';
 import { DetailPage } from './pages/detail-page/detail-page';
 import { AddPage } from './pages/add-page/add-page';
+import { LoginPage } from './pages/login-page/login-page';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'calculator', pathMatch: 'full'},
+    { path: '', redirectTo: 'login', pathMatch: 'full'},
     { path: 'home', component: HomePage },
     { path: 'calculator', component: CalculatorPage },
     { path: 'directive', component: DirectivePage },
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'students', component: StudentPage },
     { path: 'detail/:id', component: DetailPage },
     { path: 'add', component: AddPage },
+    { path: 'login', component: LoginPage },
 
 ];

@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Api } from '../../services/api';
 import { SharedModules } from '../../shared/shared-modules';
+import { ConvertPipe } from '../../pipes/convert-pipe';
 
 @Component({
   selector: 'app-detail-page',
-  imports: [RouterLink, ...SharedModules],
+  imports: [RouterLink, ...SharedModules, ConvertPipe],
   templateUrl: './detail-page.html',
   styleUrl: './detail-page.scss',
-})
+}) 
 export class DetailPage implements OnInit {
   public id: any;
   public student: { id: number; name: string; email: string; student_no: string; phone: string; } | undefined;

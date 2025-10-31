@@ -10,6 +10,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { Toolbar } from '../components/toolbar/toolbar';
 
 export const SharedModules = [
     MatToolbarModule,
@@ -24,5 +25,6 @@ export const SharedModules = [
     MatChipsModule,
     MatSlideToggleModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    Toolbar
 ];

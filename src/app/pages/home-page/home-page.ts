@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Toolbar } from '../../components/toolbar/toolbar';
 
 @Component({
   selector: 'app-home-page',
-  imports: [FormsModule],
+  imports: [FormsModule, Toolbar],
   standalone: true,
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
