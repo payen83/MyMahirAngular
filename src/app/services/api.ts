@@ -6,7 +6,8 @@ import { Data } from './data';
   providedIn: 'root'
 })
 export class Api {
-  public baseURL: string = 'http://localhost:3000/api';
+  // public baseURL: string = 'http://localhost:3000/api';
+  public baseURL: string = 'https://myexpressoct2025-production-15b2.up.railway.app/api';
 
   constructor(
     public httpClient: HttpClient,
@@ -25,6 +26,7 @@ export class Api {
 
   httpPost(path: string, payload: any){
     let fullURL: string = this.baseURL + path;
+    console.log('URL=>',fullURL);
     // let token: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzYxODEzODgyLCJleHAiOjE3NjE5MDAyODJ9.HaWZvhBQ5H8d--tSVhbBcqdlDuZew8Nv1jlAHd9tKQ0';
     let token: string = this.dataService.getLocalStorage('token');
     let headers: any = null;
